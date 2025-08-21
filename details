@@ -10,14 +10,14 @@ import { useTranslation } from 'react-i18next';
 const translations = {
   en: {
     welcome: "Welcome to Josh's Bar Mitzvah!",
-    date: "Date: September 20, 2025",
+    date: "Date: September, 06, 2025",
     rsvp: "RSVP Here",
     location: "Event Location",
     toggleLang: "עברית"
   },
   he: {
     welcome: "ברוכים הבאים לבר המצווה של ג'וש!",
-    date: "תאריך: 20 בספטמבר, 2025",
+    date: "תאריך: 06 בספטמבר, 2025",
     rsvp: "אשרו הגעה כאן",
     location: "מיקום האירוע",
     toggleLang: "English"
