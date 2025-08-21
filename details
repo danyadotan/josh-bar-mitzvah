@@ -12,14 +12,14 @@ const translations = {
     welcome: "Welcome to Josh's Bar Mitzvah!",
     date: "Date: September, 06, 2025",
     rsvp: "RSVP Here",
-    location: "Event Location",
+    location: "Beit Daniel, Bnei Dan 62, Tel-Aviv",
     toggleLang: "עברית"
   },
   he: {
     welcome: "ברוכים הבאים לבר המצווה של ג'וש!",
     date: "תאריך: 06 בספטמבר, 2025",
     rsvp: "אשרו הגעה כאן",
-    location: "מיקום האירוע",
+    location: "בית דניאל, רחוב בני דן 62, תל אביב",
     toggleLang: "English"
   }
 };
