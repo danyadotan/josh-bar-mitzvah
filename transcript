@@ -1,0 +1,80 @@
+import { useState } from "react";
+const [language, setLanguage] = useState("en");
+
+
+const toggleLanguage = () => {
+const newLang = language === "en" ? "he" : "en";
+i18n.changeLanguage(newLang);
+setLanguage(newLang);
+};
+
+
+return (
+<div className="min-h-screen bg-gradient-to-br from-white to-gray-100 text-gray-800 p-6">
+<div className="flex justify-between items-center mb-6">
+<h1 className="text-3xl font-bold">{t("Josh's Bar Mitzvah")}</h1>
+<Button variant="outline" onClick={toggleLanguage}>
+{language === "en" ? "עברית" : "English"}
+</Button>
+</div>
+
+
+<Card className="mb-6">
+<CardContent className="p-6 space-y-4">
+<h2 className="text-2xl font-semibold">{t("You're Invited!")}</h2>
+<p>{t("We’re so excited to celebrate with you. Save the date and come dance with us!")}</p>
+
+
+<div className="space-y-2">
+<div className="flex items-center gap-2">
+<CalendarCheck className="w-5 h-5" />
+<span>{t("Date")}: Friday, October 3, 2025</span>
+</div>
+<div className="flex items-center gap-2">
+<MapPin className="w-5 h-5" />
+<a href="https://maps.google.com" className="text-blue-500 underline" target="_blank">
+{t("Venue")}: Beit HaAm, Tel Aviv
+</a>
+</div>
+</div>
+
+
+<div className="flex gap-4 pt-4">
+<Button asChild>
+<a href="https://forms.gle/exampleRSVP" target="_blank">
+<Send className="mr-2 w-4 h-4" /> {t("RSVP")}
+</a>
+</Button>
+<Button asChild variant="secondary">
+<a href="https://open.spotify.com/playlist/example" target="_blank">
+<Music className="mr-2 w-4 h-4" /> {t("Playlist")}
+</a>
+</Button>
+<Button asChild variant="ghost">
+<a href="https://wa.me/972000000000" target="_blank">
+<Globe className="mr-2 w-4 h-4" /> WhatsApp
+</a>
+</Button>
+</div>
+</CardContent>
+</Card>
+
+
+<Card>
+<CardContent className="p-6">
+<h2 className="text-xl font-semibold mb-2">{t("What to Expect")}</h2>
+<ul className="list-disc list-inside space-y-1">
+<li>{t("Ceremony at the synagogue at 9:00 AM")}</li>
+<li>{t("Kiddush and dancing at Beit HaAm at 11:30 AM")}</li>
+<li>{t("Fun surprises for kids and adults!")}</li>
+</ul>
+</CardContent>
+</Card>
+
+
+<footer className="text-center mt-10 text-gray-500">
+{t("With love, Danya, Nissim, Josh, Alex & Chelsea 💕")}
+</footer>
+</div>
+);
+}
