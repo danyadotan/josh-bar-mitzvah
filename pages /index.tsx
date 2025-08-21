@@ -1,23 +1,31 @@
-import { useState } from 'react';
-import Head from 'next/head';
-import { Button } from '@/components/ui/button';
-import { useTranslation } from 'next-i18next';
-import { AppLayout } from '@/components/AppLayout';
+import Head from "next/head";
+import { Button } from "@/components/ui/button";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import { HeroSection } from "@/components/HeroSection";
+import { InfoSection } from "@/components/InfoSection";
+import { RSVPSection } from "@/components/RSVPSection";
+import { Footer } from "@/components/Footer";
 
 
 export default function Home() {
-const { t } = useTranslation();
-const [language, setLanguage] = useState<'en' | 'he'>('en');
-
-
-const toggleLanguage = () => {
-const nextLang = language === 'en' ? 'he' : 'en';
-setLanguage(nextLang);
-document.documentElement.lang = nextLang;
-};
-
-
 return (
+<>
+<Head>
+<title>Josh's Bar Mitzvah</title>
+<meta name="description" content="Join us in celebrating Josh’s big day!" />
+</Head>
+<main className="min-h-screen bg-gradient-to-b from-blue-50 to-white text-gray-800">
+<LanguageToggle />
+<HeroSection />
+<InfoSection />
+<RSVPSection />
+<Footer />
+</main>
+</>
+);
+}
+return (
+  
 <AppLayout>
 <Head>
 <title>{t('title')}</title>
