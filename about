@@ -1,0 +1,81 @@
+// Josh's Bar Mitzvah Website Template
+// Tailwind + Shadcn + i18n Ready + Event Integrations
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { MapPin, CalendarCheck, Send, Globe, Music } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
+export default function BarMitzvahSite() {
+  const { t, i18n } = useTranslation();
+  const [language, setLanguage] = useState("en");
+
+  const toggleLanguage = () => {
+    const newLang = language === "en" ? "he" : "en";
+    i18n.changeLanguage(newLang);
+    setLanguage(newLang);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-white to-gray-100 text-gray-800 p-6">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">{t("Josh's Bar Mitzvah")}</h1>
+        <Button variant="outline" onClick={toggleLanguage}>
+          {language === "en" ? "עברית" : "English"}
+        </Button>
+      </div>
+
+      <Card className="mb-8">
+        <CardContent className="p-6 space-y-4">
+          <h2 className="text-2xl font-semibold">{t("You're Invited!")}</h2>
+          <p>{t("We’re so excited to celebrate with you. Save the date and come dance with us!")}</p>
+
+          <div className="space-y-2">
+            <div className="flex items-center gap-2">
+              <CalendarCheck className="w-5 h-5" />
+              <span>{t("Date")}: Friday, October 3, 2025</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-5 h-5" />
+              <span>{t("Location")}: Ahavat Zion Synagogue, Tel Aviv</span>
+            </div>
+          </div>
+
+          <Button variant="secondary" className="mt-4">
+            <Send className="w-4 h-4 mr-2" /> {t("RSVP Now")}
+          </Button>
+        </CardContent>
+      </Card>
+
+      <div className="grid md:grid-cols-3 gap-4">
+        <Card>
+          <CardContent className="p-4">
+            <h3 className="font-semibold mb-2 flex items-center"><Music className="w-4 h-4 mr-1" /> {t("Party Playlist")}</h3>
+            <a href="https://open.spotify.com/" className="underline text-blue-600" target="_blank" rel="noopener noreferrer">
+              {t("Listen on Spotify")}
+            </a>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <h3 className="font-semibold mb-2 flex items-center"><Globe className="w-4 h-4 mr-1" /> {t("Venue Map")}</h3>
+            <a href="https://maps.google.com" className="underline text-blue-600" target="_blank" rel="noopener noreferrer">
+              {t("View on Google Maps")}
+            </a>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardContent className="p-4">
+            <h3 className="font-semibold mb-2 flex items-center"><Send className="w-4 h-4 mr-1" /> {t("Share")}</h3>
+            <a href="https://wa.me/?text=Josh's%20Bar%20Mitzvah!%20Join%20us:%20[your-link]" className="underline text-green-600" target="_blank" rel="noopener noreferrer">
+              {t("Share on WhatsApp")}
+            </a>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
