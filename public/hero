@@ -1,0 +1,82 @@
+import { useState } from "react";
+</div>
+</header>
+
+
+<main className="max-w-3xl mx-auto space-y-10 p-4">
+<Card>
+<CardContent className="p-6 text-center">
+<CalendarDays className="mx-auto mb-4" size={36} />
+<h2 className="text-2xl font-semibold mb-2">{t.dateTitle}</h2>
+<p>{t.dateDetails}</p>
+</CardContent>
+</Card>
+
+
+<Card>
+<CardContent className="p-6 text-center">
+<MapPin className="mx-auto mb-4" size={36} />
+<h2 className="text-2xl font-semibold mb-2">{t.locationTitle}</h2>
+<p>{t.locationName}</p>
+<Link
+href="https://maps.google.com?q=YourLocationHere"
+target="_blank"
+className="text-purple-700 underline"
+>
+{t.openMap}
+</Link>
+</CardContent>
+</Card>
+
+
+<Card>
+<CardContent className="p-6 text-center">
+<Music className="mx-auto mb-4" size={36} />
+<h2 className="text-2xl font-semibold mb-2">{t.musicTitle}</h2>
+<Link
+href="https://open.spotify.com/playlist/YOURPLAYLISTID"
+target="_blank"
+className="text-purple-700 underline"
+>
+{t.openSpotify}
+</Link>
+</CardContent>
+</Card>
+
+
+<Card>
+<CardContent className="p-6 text-center">
+<Phone className="mx-auto mb-4" size={36} />
+<h2 className="text-2xl font-semibold mb-2">{t.contactTitle}</h2>
+<Link
+href="https://wa.me/YOURNUMBER"
+target="_blank"
+className="text-purple-700 underline"
+>
+{t.openWhatsApp}
+</Link>
+</CardContent>
+</Card>
+
+
+<Card>
+<CardContent className="p-6 text-center">
+<PartyPopper className="mx-auto mb-4" size={36} />
+<h2 className="text-2xl font-semibold mb-2">{t.rsvpTitle}</h2>
+<Link
+href="/rsvp"
+className="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700"
+>
+{t.rsvpButton}
+</Link>
+</CardContent>
+</Card>
+</main>
+
+
+<footer className="text-center py-6 text-sm text-gray-500">
+{t.footerText}
+</footer>
+</div>
+);
+}
