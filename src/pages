@@ -1,0 +1,12 @@
+home.jsx
+import Header from '../components/Header';
+
+export default function HomePage() {
+  return (
+    <>
+      <Header />
+      <h1>ברוכים הבאים</h1>
+      <p>Welcome to Josh’s Bar Mitzvah celebration!</p>
+    </>
+  );
+}
