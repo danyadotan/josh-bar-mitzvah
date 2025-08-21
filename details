@@ -1,0 +1,71 @@
+// Josh's Bar Mitzvah Website Template
+// Tailwind + Shadcn + i18n Ready + Event Integrations
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import GoogleMapReact from 'google-map-react';
+import { useTranslation } from 'react-i18next';
+
+const translations = {
+  en: {
+    welcome: "Welcome to Josh's Bar Mitzvah!",
+    date: "Date: September 20, 2025",
+    rsvp: "RSVP Here",
+    location: "Event Location",
+    toggleLang: "עברית"
+  },
+  he: {
+    welcome: "ברוכים הבאים לבר המצווה של ג'וש!",
+    date: "תאריך: 20 בספטמבר, 2025",
+    rsvp: "אשרו הגעה כאן",
+    location: "מיקום האירוע",
+    toggleLang: "English"
+  }
+};
+
+const AnyReactComponent = ({ text }) => <div className="text-sm font-bold bg-white p-1 rounded shadow">{text}</div>;
+
+export default function BarMitzvahPage() {
+  const [lang, setLang] = useState("en");
+  const t = translations[lang];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-purple-100 p-6">
+      <div className="max-w-2xl mx-auto text-center">
+        <h1 className="text-4xl font-bold mb-4">{t.welcome}</h1>
+        <p className="text-xl mb-6">{t.date}</p>
+        <Button className="mb-4 text-lg" onClick={() => alert("RSVP Link Coming Soon")}>{t.rsvp}</Button>
+        <div className="mb-6">
+          <Card>
+            <CardContent className="p-4">
+              <h2 className="text-lg font-semibold mb-2">{t.location}</h2>
+              <div className="h-64 w-full">
+                <GoogleMapReact
+                  bootstrapURLKeys={{ key: 'YOUR_GOOGLE_MAPS_API_KEY' }}
+                  defaultCenter={{ lat: 32.0853, lng: 34.7818 }}
+                  defaultZoom={15}
+                >
+                  <AnyReactComponent
+                    lat={32.0853}
+                    lng={34.7818}
+                    text="Event Venue"
+                  />
+                </GoogleMapReact>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+        <Button variant="ghost" onClick={() => setLang(lang === 'en' ? 'he' : 'en')}>
+          {t.toggleLang}
+        </Button>
+        <div className="mt-6">
+          <a href="https://open.spotify.com/playlist/xyz" target="_blank" rel="noopener noreferrer" className="underline text-blue-600 text-sm">Josh's Spotify Playlist</a>
+        </div>
+        <div className="mt-2">
+          <a href="https://wa.me/972501234567" className="underline text-green-600 text-sm">WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+  );
+}
